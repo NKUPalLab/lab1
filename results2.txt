@@ -1,0 +1,60 @@
+Naive Sum Performance:
+Array Size	Naive Average Time (ms)
+10000		0.0498653
+100000		0.618129
+1000000		10.918
+10000000		70.7973
+
+ Performance counter stats for './naive_sum':
+
+    22,231,787,948      L1-dcache-loads                  #  780.062 M/sec                       (63.66%)
+        26,107,944      L1-dcache-load-misses            #    0.12% of all L1-dcache accesses   (54.57%)
+     6,665,325,363      l1d_cache_wr                     #  233.871 M/sec                       (54.45%)
+       241,452,604      l2d_cache                        #    8.472 M/sec                       (54.46%)
+        14,749,265      l2d_cache_refill                 #  517.517 K/sec                       (54.51%)
+    62,357,802,299      cycles                           #    2.188 GHz                         (63.56%)
+   228,510,532,338      instructions                     #    3.66  insn per cycle              (63.55%)
+    41,309,269,437      branches                         #    1.449 G/sec                       (63.65%)
+        44,108,242      branch-misses                    #    0.11% of all branches             (63.66%)
+    22,278,695,398      cache-references                 #  781.708 M/sec                       (63.74%)
+        26,032,610      cache-misses                     #    0.12% of all cache refs           (63.76%)
+         28,500.04 msec task-clock                       #    0.928 CPUs utilized             
+
+      30.719500710 seconds time elapsed
+
+      26.937879000 seconds user
+       1.509631000 seconds sys
+
+
+
+Optimized Recursive Sum Performance:
+测试在ARM64架构上的性能
+数组大小	递归优化		两路链式	四路链式		NEON优化
+		时间(ms)		时间(ms)	时间(ms)		时间(ms)
+10000		0.0665913			0.0174667		0.0156723			0.0269727
+100000		9.30642			0.269032		0.507306			0.768785
+1000000		86.0024			2.69902		2.3862			3.92648
+10000000		749.451			26.909		23.3878			38.6172
+
+ Performance counter stats for './optimized_sum':
+
+    23,271,533,057      L1-dcache-loads                  #  769.467 M/sec                       (63.46%)
+        32,235,654      L1-dcache-load-misses            #    0.14% of all L1-dcache accesses   (54.75%)
+     6,962,772,059      l1d_cache_wr                     #  230.222 M/sec                       (55.82%)
+       385,924,654      l2d_cache                        #   12.760 M/sec                       (56.32%)
+        38,703,920      l2d_cache_refill                 #    1.280 M/sec                       (56.70%)
+    62,425,026,685      cycles                           #    2.064 GHz                         (65.60%)
+   225,965,438,441      instructions                     #    3.62  insn per cycle              (65.70%)
+    40,669,013,454      branches                         #    1.345 G/sec                       (65.46%)
+        47,586,014      branch-misses                    #    0.12% of all branches             (64.64%)
+    23,637,524,559      cache-references                 #  781.569 M/sec                       (63.87%)
+        31,207,684      cache-misses                     #    0.13% of all cache refs           (63.44%)
+         30,243.69 msec task-clock                       #    0.918 CPUs utilized             
+
+      32.946802434 seconds time elapsed
+
+      26.876290000 seconds user
+       3.242345000 seconds sys
+
+
+
