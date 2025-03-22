@@ -2,8 +2,6 @@
 #include <vector>
 #include <chrono>
 #include <random>
-
-// Vanilla algorithm: sequentially accumulate the sum.
 double naiveSum(const std::vector<double>& data) {
     double sum = 0.0;
     for (double value : data) {
@@ -11,7 +9,6 @@ double naiveSum(const std::vector<double>& data) {
     }
     return sum;
 }
-
 void generateRandomData(std::vector<double>& data, int n) {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -21,12 +18,9 @@ void generateRandomData(std::vector<double>& data, int n) {
         data[i] = dis(gen);
     }
 }
-
 int main() {
-    // Test sizes for array
     const int sizes[] = {10000, 100000, 1000000, 10000000};
-    int trials = 3; // Number of repetitions per test size
-
+    int trials = 3;
     std::cout << "Array Size\tNaive Average Time (ms)" << std::endl;
     for (int n : sizes) {
         double totalTime = 0.0;

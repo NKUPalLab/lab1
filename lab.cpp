@@ -67,41 +67,22 @@ bool compareResults(const std::vector<double>& result1, const std::vector<double
 }
 
 int main() {
-    // 设置矩阵大小
     const int sizes[] = {100, 500, 1000, 2000};
     
     std::cout << "矩阵大小\t平凡算法耗时(ms)\t缓存优化算法耗时(ms)\t加速比\n";
-    std::cout << "-----------------------------------------------------\n";
     
     for (int n : sizes) {
-        // 初始化矩阵和向量
         std::vector<std::vector<double>> matrix(n, std::vector<double>(n));
         std::vector<double> vector(n);
-        
-        // 生成随机数据
         generateRandomData(matrix, vector, n);
-        
-        //测试平凡算法
         auto start1 = std::chrono::high_resolution_clock::now();
         std::vector<double> result1 = naiveDotProduct(matrix, vector, n);
         auto end1 = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double, std::milli> duration1 = end1 - start1;
-        
-        // 测试缓存优化算法
         auto start2 = std::chrono::high_resolution_clock::now();
         std::vector<double> result2 = cacheFriendlyDotProduct(matrix, vector, n);
         auto end2 = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double, std::milli> duration2 = end2 - start2;
-        
-        // 验证结果是否相同
-        // bool resultsMatch = compareResults(result1, result2);
-        
-        // // 输出性能比较
-        // double speedup = duration1.count() / duration2.count();
-        // std::cout << n << "x" << n << "\t" 
-        //           << std::fixed << std::setprecision(2) << duration1.count() << "\t\t" 
-        //           << duration2.count() << "\t\t\t" 
-        //           << speedup << (resultsMatch ? "" : " (结果不匹配!)") << "\n";
     }
     
     return 0;

@@ -1,76 +1,74 @@
 Naive Dot Product Performance (with extended analysis):
 矩阵大小	平凡算法耗时(ms)
-----------------------------
 100x100	0.01
-500x500	0.29
-1000x1000	3.21
-2000x2000	43.22
-3000x3000	77.61
-4000x4000	152.98
-5000x5000	303.48
-6000x6000	393.37
-7000x7000	600.54
-8000x8000	885.72
-9000x9000	1091.68
-10000x10000	1391.38
+500x500	0.30
+1000x1000	2.94
+2000x2000	30.97
+3000x3000	77.70
+4000x4000	145.84
+5000x5000	271.46
+6000x6000	412.28
+7000x7000	611.42
+8000x8000	906.16
+9000x9000	1144.80
+10000x10000	1408.52
 
  Performance counter stats for './naive':
 
-    12,581,502,343      L1-dcache-loads                  #    1.337 G/sec                       (63.68%)
-       530,235,793      L1-dcache-load-misses            #    4.21% of all L1-dcache accesses   (54.68%)
-     4,386,246,775      l1d_cache_wr                     #  466.104 M/sec                       (54.69%)
-     2,066,343,911      l2d_cache                        #  219.580 M/sec                       (54.61%)
-       327,618,814      l2d_cache_refill                 #   34.814 M/sec                       (54.44%)
-    19,524,982,866      cycles                           #    2.075 GHz                         (63.46%)
-    41,673,761,292      instructions                     #    2.13  insn per cycle              (63.49%)
-     4,907,104,909      branches                         #  521.453 M/sec                       (63.51%)
-         4,877,374      branch-misses                    #    0.10% of all branches             (63.60%)
-    12,464,112,119      cache-references                 #    1.324 G/sec                       (63.69%)
-       534,290,900      cache-misses                     #    4.29% of all cache refs           (63.61%)
-          9,410.45 msec task-clock                       #    0.895 CPUs utilized             
+    12,522,184,172      L1-dcache-loads                  #    1.309 G/sec                       (63.69%)
+       535,976,936      L1-dcache-load-misses            #    4.28% of all L1-dcache accesses   (54.55%)
+     4,363,336,478      l1d_cache_wr                     #  455.967 M/sec                       (54.45%)
+     2,095,032,963      l2d_cache                        #  218.930 M/sec                       (54.44%)
+       340,728,837      l2d_cache_refill                 #   35.606 M/sec                       (54.51%)
+    19,854,997,780      cycles                           #    2.075 GHz                         (63.68%)
+    42,037,001,180      instructions                     #    2.12  insn per cycle              (63.73%)
+     4,934,778,263      branches                         #  515.683 M/sec                       (63.67%)
+         5,109,354      branch-misses                    #    0.10% of all branches             (63.56%)
+    12,438,251,934      cache-references                 #    1.300 G/sec                       (63.68%)
+       536,604,190      cache-misses                     #    4.31% of all cache refs           (63.73%)
+          9,569.41 msec task-clock                       #    0.892 CPUs utilized             
 
-      10.513074589 seconds time elapsed
+      10.731495707 seconds time elapsed
 
-       7.632498000 seconds user
-       1.706580000 seconds sys
+       7.782774000 seconds user
+       1.719505000 seconds sys
 
 
 
 Cache-Friendly Dot Product Performance (with extended analysis):
 矩阵大小	缓存优化算法耗时(ms)
-------------------------------
 100x100	0.01
-500x500	0.15
-1000x1000	0.68
-2000x2000	3.98
-3000x3000	8.86
-4000x4000	13.02
-5000x5000	22.13
-6000x6000	33.22
-7000x7000	43.71
-8000x8000	75.74
-9000x9000	75.28
-10000x10000	90.18
+500x500	0.88
+1000x1000	0.74
+2000x2000	3.38
+3000x3000	8.57
+4000x4000	19.02
+5000x5000	34.85
+6000x6000	33.23
+7000x7000	46.73
+8000x8000	59.49
+9000x9000	75.31
+10000x10000	91.45
 
  Performance counter stats for './cache_friendly':
 
-    12,413,531,594      L1-dcache-loads                  #    2.358 G/sec                       (63.68%)
-        88,840,796      L1-dcache-load-misses            #    0.72% of all L1-dcache accesses   (54.57%)
-     4,723,014,914      l1d_cache_wr                     #  897.167 M/sec                       (54.47%)
-       548,331,452      l2d_cache                        #  104.159 M/sec                       (54.47%)
-        26,423,181      l2d_cache_refill                 #    5.019 M/sec                       (54.53%)
-    11,299,045,934      cycles                           #    2.146 GHz                         (63.75%)
-    41,956,359,680      instructions                     #    3.71  insn per cycle              (63.67%)
-     4,926,237,234      branches                         #  935.770 M/sec                       (63.75%)
-         4,127,891      branch-misses                    #    0.08% of all branches             (63.67%)
-    12,416,666,402      cache-references                 #    2.359 G/sec                       (63.56%)
-        89,062,009      cache-misses                     #    0.72% of all cache refs           (63.63%)
-          5,264.37 msec task-clock                       #    0.907 CPUs utilized             
+    12,445,662,847      L1-dcache-loads                  #    2.344 G/sec                       (63.64%)
+        89,320,926      L1-dcache-load-misses            #    0.72% of all L1-dcache accesses   (54.55%)
+     4,718,351,173      l1d_cache_wr                     #  888.828 M/sec                       (54.66%)
+       541,855,666      l2d_cache                        #  102.073 M/sec                       (54.45%)
+        26,397,834      l2d_cache_refill                 #    4.973 M/sec                       (54.40%)
+    11,290,826,948      cycles                           #    2.127 GHz                         (63.49%)
+    41,914,012,925      instructions                     #    3.71  insn per cycle              (63.59%)
+     4,924,766,644      branches                         #  927.712 M/sec                       (63.61%)
+         4,186,852      branch-misses                    #    0.09% of all branches             (63.74%)
+    12,437,752,231      cache-references                 #    2.343 G/sec                       (63.69%)
+        89,277,745      cache-misses                     #    0.72% of all cache refs           (63.67%)
+          5,308.51 msec task-clock                       #    0.901 CPUs utilized             
 
-       5.805196532 seconds time elapsed
+       5.891390005 seconds time elapsed
 
-       3.803927000 seconds user
-       1.434643000 seconds sys
+       3.844080000 seconds user
+       1.442910000 seconds sys
 
 
 
@@ -78,36 +76,36 @@ Unrolling Dot Product Performance (with extended analysis):
 矩阵大小	Unrolling算法（循环展开）耗时(ms)
 100x100	0.01
 500x500	0.11
-1000x1000	0.41
-2000x2000	3.36
-3000x3000	7.85
-4000x4000	12.70
-5000x5000	21.26
-6000x6000	30.05
-7000x7000	42.51
-8000x8000	53.08
-9000x9000	68.63
-10000x10000	87.32
+1000x1000	0.60
+2000x2000	3.73
+3000x3000	7.51
+4000x4000	11.94
+5000x5000	21.09
+6000x6000	30.94
+7000x7000	42.90
+8000x8000	54.93
+9000x9000	68.75
+10000x10000	87.41
 
  Performance counter stats for './unrolling':
 
-    12,456,982,220      L1-dcache-loads                  #    2.369 G/sec                       (63.51%)
-        83,671,486      L1-dcache-load-misses            #    0.67% of all L1-dcache accesses   (54.50%)
-     4,724,139,231      l1d_cache_wr                     #  898.224 M/sec                       (54.51%)
-       542,983,868      l2d_cache                        #  103.240 M/sec                       (54.75%)
-        27,739,358      l2d_cache_refill                 #    5.274 M/sec                       (54.60%)
-    11,193,897,865      cycles                           #    2.128 GHz                         (63.67%)
-    41,342,049,458      instructions                     #    3.69  insn per cycle              (63.54%)
-     4,737,293,858      branches                         #  900.725 M/sec                       (63.72%)
-         4,097,568      branch-misses                    #    0.09% of all branches             (63.58%)
-    12,444,810,140      cache-references                 #    2.366 G/sec                       (63.66%)
-        83,485,887      cache-misses                     #    0.67% of all cache refs           (63.63%)
-          5,259.42 msec task-clock                       #    0.901 CPUs utilized             
+    12,406,431,864      L1-dcache-loads                  #    2.364 G/sec                       (63.77%)
+        89,374,237      L1-dcache-load-misses            #    0.72% of all L1-dcache accesses   (54.59%)
+     4,714,913,836      l1d_cache_wr                     #  898.529 M/sec                       (54.70%)
+       542,122,539      l2d_cache                        #  103.313 M/sec                       (54.75%)
+        26,162,847      l2d_cache_refill                 #    4.986 M/sec                       (54.54%)
+    11,218,276,604      cycles                           #    2.138 GHz                         (63.76%)
+    41,354,558,984      instructions                     #    3.69  insn per cycle              (63.56%)
+     4,741,824,543      branches                         #  903.657 M/sec                       (63.44%)
+         4,092,472      branch-misses                    #    0.09% of all branches             (63.46%)
+    12,426,502,895      cache-references                 #    2.368 G/sec                       (63.55%)
+        89,936,982      cache-misses                     #    0.72% of all cache refs           (63.64%)
+          5,247.37 msec task-clock                       #    0.908 CPUs utilized             
 
-       5.836420376 seconds time elapsed
+       5.779418539 seconds time elapsed
 
-       3.777363000 seconds user
-       1.458463000 seconds sys
+       3.779365000 seconds user
+       1.445585000 seconds sys
 
 
 
