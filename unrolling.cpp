@@ -4,7 +4,6 @@
 #include <random>
 #include <iomanip>
 
-// New Optimized algorithm: combine cache-friendly access with loop unrolling.
 std::vector<double> newOptimizedDotProduct(const std::vector<std::vector<double>>& matrix, const std::vector<double>& vec, int n) {
     std::vector<double> result(n, 0.0);
     for (int i = 0; i < n; i++) {
